@@ -1,93 +1,68 @@
-<!-- ... existing code ... -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hannibal Defence Protocol | Hove RFC</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        /* Elite Brutalist Aesthetics */
         body { 
-            background-color: #000000; /* Pure black for Apple OLED look */
-            color: #f5f5f7; 
+            background-color: #070707; /* Almost pure black */
+            color: #ffffff; 
             font-family: 'Inter', sans-serif;
             -webkit-font-smoothing: antialiased;
         }
-        
-        /* Elite Apple-style Glassmorphism */
-        .glass-panel {
-            background: rgba(20, 20, 20, 0.6);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 1.5rem;
-            transition: all 0.3s ease;
-        }
-        
-        .glass-panel:hover {
-            background: rgba(30, 30, 30, 0.8);
-            border-color: rgba(255, 255, 255, 0.15);
+
+        .font-oswald { font-family: 'Oswald', sans-serif; }
+        .font-mono-tech { font-family: 'Space Mono', monospace; }
+
+        /* Hard edges, no rounded corners */
+        .sharp-box {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #0a0a0a;
         }
 
-        /* Sleek Gradients */
-        .text-gradient-blue {
-            background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .text-gradient-red {
-            background: linear-gradient(135deg, #f87171 0%, #dc2626 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        /* Glitch/Hover Effects for impact */
+        .hover-target:hover {
+            border-color: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
         }
 
-        .text-gradient-silver {
-            background: linear-gradient(135deg, #ffffff 0%, #a3a3a3 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Ambient Glows */
-        .glow-blue {
-            box-shadow: 0 0 80px -20px rgba(37, 99, 235, 0.15);
-        }
-        .glow-red {
-            box-shadow: 0 0 80px -20px rgba(220, 38, 38, 0.15);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #000;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #070707; }
+        ::-webkit-scrollbar-thumb { background: #333; }
+        ::-webkit-scrollbar-thumb:hover { background: #666; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col relative overflow-x-hidden selection:bg-hove-blue selection:text-white">
+<body class="min-h-screen flex flex-col relative overflow-x-hidden selection:bg-red-700 selection:text-white">
 
-    <!-- Ambient Background Glows (Apple Style) -->
-    <div class="fixed top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
-    <div class="fixed bottom-0 right-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
-
-    <header class="relative z-10 pt-10 pb-6">
-        <div class="container mx-auto px-6 lg:px-12">
+    <header class="relative z-20 border-b border-white/10 bg-[#070707]">
+        <div class="container mx-auto px-6 py-6 lg:px-12">
             <div class="flex items-center justify-between">
-                <!-- Cleaned up Logo - No background box, no blend modes -->
-                <div class="flex items-center justify-center">
-                    <img src="Hove rfc.png" alt="Hove RFC Logo" class="h-20 md:h-28 w-auto object-contain drop-shadow-2xl">
+                <!-- Clean Logo - No box, no filters, just the raw image -->
+                <div class="flex items-center w-24 md:w-32">
+                    <img src="Hove rfc.png" alt="Hove RFC Logo" class="w-full h-auto object-contain">
                 </div>
                 
                 <div class="text-right">
-                    <p class="font-mono text-neutral-500 text-xs md:text-sm tracking-[0.2em] uppercase mb-1">Defence Protocol</p>
-                    <h1 class="text-2xl md:text-4xl font-bold tracking-tight text-white">
-                        HANNIBAL <span class="text-neutral-500 font-light">SYSTEM</span>
+                    <div class="flex items-center justify-end gap-4 mb-1">
+                        <div class="bg-white text-black px-2 py-0.5 font-mono-tech text-xs font-bold tracking-widest uppercase">
+                            System Active
+                        </div>
+                        <p class="font-mono-tech text-neutral-500 text-xs tracking-[0.2em] uppercase">
+                            // Protocol Initiated
+                        </p>
+                    </div>
+                    <h1 class="text-3xl md:text-5xl font-oswald font-bold tracking-tight uppercase text-white mt-2">
+                        Hannibal <span class="text-neutral-600">System</span>
                     </h1>
                 </div>
             </div>
@@ -96,157 +71,176 @@
 
     <main class="relative z-10 flex-grow">
         
-        <!-- The Keywords Hero Section (Apple Ultra Style) -->
-        <section class="py-20 lg:py-32">
-            <div class="container mx-auto px-6 lg:px-12 text-center md:text-left flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-3/5">
-                    <h2 class="text-[4.5rem] md:text-8xl lg:text-[10rem] font-black tracking-tighter leading-[0.85] mb-8">
-                        <span class="block text-gradient-silver mb-2">SUFFOCATE.</span>
-                        <span class="block text-gradient-blue mb-2">PRESSURE.</span>
-                        <span class="block text-gradient-red">MASTERY.</span>
-                    </h2>
-                </div>
-                <div class="md:w-2/5 glass-panel p-8 md:p-10 glow-blue">
-                    <p class="font-mono text-hove-blue mb-4 tracking-widest text-xs font-bold uppercase">01 // Primary Directive</p>
-                    <p class="text-2xl md:text-3xl text-neutral-200 font-medium tracking-tight leading-snug">
-                        Suffocate the opposition with extreme mental and physical pressure via technical mastery.
-                    </p>
+        <section class="py-16 md:py-24 border-b border-white/5 relative overflow-hidden">
+            <!-- Subtle Punisher Watermark in the background -->
+            <img src="image_103638.png" alt="Skull" class="absolute -right-20 -top-20 w-[600px] h-auto opacity-[0.03] pointer-events-none rotate-12">
+            
+            <div class="container mx-auto px-6 lg:px-12 relative z-10">
+                <div class="flex flex-col lg:flex-row items-start lg:items-center gap-12 lg:gap-24">
+                    
+                    <!-- The 3 Key Words -->
+                    <div class="lg:w-1/2">
+                        <h2 class="font-oswald text-[4.5rem] md:text-[7rem] lg:text-[8rem] font-bold uppercase leading-[0.85] tracking-tighter">
+                            <span class="block text-white">Suffocate.</span>
+                            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-800">Pressure.</span>
+                            <span class="block text-white">Mastery.</span>
+                        </h2>
+                    </div>
+
+                    <!-- The Full Directive -->
+                    <div class="lg:w-1/2 lg:pl-12 lg:border-l border-white/10">
+                        <p class="font-mono-tech text-neutral-500 mb-6 tracking-widest text-sm uppercase">01 // The Primary Directive</p>
+                        <p class="text-3xl md:text-4xl text-neutral-200 font-oswald uppercase leading-tight tracking-wide">
+                            Suffocate the opposition with <span class="text-red-600">extreme mental & physical pressure</span> via technical mastery.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Metrics & Vulnerabilities -->
-        <section class="py-12">
+        <section class="py-16 border-b border-white/5 bg-[#0a0a0a]">
             <div class="container mx-auto px-6 lg:px-12">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
                     
-                    <!-- Success Metrics -->
-                    <div class="glass-panel p-10 relative overflow-hidden flex flex-col justify-between group glow-blue">
-                        <img src="image_103638.png" alt="Punisher Skull" class="absolute -right-10 -bottom-10 w-[24rem] h-auto opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-700 pointer-events-none">
-                        
-                        <div class="relative z-10">
-                            <p class="font-mono text-neutral-500 mb-6 tracking-widest text-xs font-bold uppercase">02 // Success Metrics</p>
-                            <h3 class="text-4xl text-white font-bold tracking-tight mb-6">Force The Error</h3>
-                            <p class="text-lg text-neutral-400 mb-8 font-light leading-relaxed">
-                                Conceding fewer points mathematically forces the opposition into higher error rates. The inevitable chain reaction:
-                            </p>
-                            
-                            <ul class="space-y-5 text-xl text-neutral-200 font-medium tracking-tight">
-                                <li class="flex items-center gap-4">
-                                    <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-sm text-neutral-400"><i class="fa-solid fa-arrow-right"></i></div>
-                                    They turn on each other
-                                </li>
-                                <li class="flex items-center gap-4">
-                                    <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-sm text-neutral-400"><i class="fa-solid fa-arrow-right"></i></div>
-                                    They physically fade
-                                </li>
-                                <li class="flex items-center gap-4 text-white bg-blue-900/20 p-4 rounded-xl border border-blue-500/20 mt-4">
-                                    <div class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-sm text-blue-400"><i class="fa-solid fa-crosshairs"></i></div>
-                                    They will kick... and we'll be ready.
-                                </li>
-                            </ul>
+                    <!-- Success Chain Reaction -->
+                    <div>
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="w-12 h-1 bg-white"></div>
+                            <h3 class="font-oswald text-4xl text-white uppercase tracking-wider">The Chain Reaction</h3>
                         </div>
+                        <p class="text-lg text-neutral-400 mb-8 font-inter font-light">
+                            Conceding fewer points mathematically forces the opposition into higher error rates. The inevitable result:
+                        </p>
+                        <ul class="space-y-6 font-oswald text-2xl uppercase tracking-wide">
+                            <li class="flex items-center gap-6 border-b border-white/10 pb-4">
+                                <span class="text-red-600 font-mono-tech text-sm">01</span>
+                                They turn on each other.
+                            </li>
+                            <li class="flex items-center gap-6 border-b border-white/10 pb-4">
+                                <span class="text-red-600 font-mono-tech text-sm">02</span>
+                                They physically fade.
+                            </li>
+                            <li class="flex items-center gap-6 border-b border-white/10 pb-4 text-white">
+                                <span class="text-red-600 font-mono-tech text-sm">03</span>
+                                They will kick... and we'll be ready.
+                            </li>
+                        </ul>
                     </div>
 
-                    <!-- Weaknesses -->
-                    <div class="glass-panel p-10 glow-red">
-                        <p class="font-mono text-red-500 mb-6 tracking-widest text-xs font-bold uppercase">03 // Threat Assessment</p>
-                        <h3 class="text-4xl text-white font-bold tracking-tight mb-8">System Vulnerabilities</h3>
+                    <!-- System Weaknesses -->
+                    <div>
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="w-12 h-1 bg-red-600"></div>
+                            <h3 class="font-oswald text-4xl text-white uppercase tracking-wider">Threat Assessment</h3>
+                        </div>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="bg-black/50 p-6 rounded-2xl border border-white/5">
-                                <h4 class="text-xl text-white font-semibold mb-2">Disconnections</h4>
-                                <p class="text-sm text-neutral-400 font-light leading-relaxed">Breaks in the defensive line architecture.</p>
+                            <div class="sharp-box p-6 hover-target">
+                                <h4 class="font-oswald text-xl text-white uppercase mb-2">Disconnections</h4>
+                                <p class="text-sm text-neutral-500 font-mono-tech">Breaks in the line architecture.</p>
                             </div>
-                            <div class="bg-black/50 p-6 rounded-2xl border border-white/5">
-                                <h4 class="text-xl text-white font-semibold mb-2">Individual Failure</h4>
-                                <p class="text-sm text-neutral-400 font-light leading-relaxed">Technical misses, mismatches, poor tackle choice, loss of bottle.</p>
+                            <div class="sharp-box p-6 hover-target">
+                                <h4 class="font-oswald text-xl text-white uppercase mb-2">Individual Failure</h4>
+                                <p class="text-sm text-neutral-500 font-mono-tech">Technical misses, tackle choice, bottle.</p>
                             </div>
-                            <div class="bg-black/50 p-6 rounded-2xl border border-white/5">
-                                <h4 class="text-xl text-white font-semibold mb-2">Cross-Field Kicks</h4>
-                                <p class="text-sm text-neutral-400 font-light leading-relaxed">Exposure on the extreme edges of the formation.</p>
+                            <div class="sharp-box p-6 hover-target">
+                                <h4 class="font-oswald text-xl text-white uppercase mb-2">Cross-Field Kicks</h4>
+                                <p class="text-sm text-neutral-500 font-mono-tech">Exposure on extreme edges.</p>
                             </div>
-                            <div class="bg-red-950/20 p-6 rounded-2xl border border-red-500/20 relative overflow-hidden">
-                                <div class="absolute left-0 top-0 bottom-0 w-1 bg-red-500"></div>
-                                <h4 class="text-xl text-red-400 font-semibold mb-2">Silent Back 3</h4>
-                                <p class="text-sm text-neutral-400 font-light leading-relaxed">Zero communication from the rear guard is fatal.</p>
+                            <div class="sharp-box p-6 border-l-2 border-l-red-600 bg-red-950/10">
+                                <h4 class="font-oswald text-xl text-red-500 uppercase mb-2">Silent Back 3</h4>
+                                <p class="text-sm text-neutral-400 font-mono-tech">Zero communication from the rear is fatal.</p>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Ranges (Apple Features Style) -->
-        <section class="py-20 relative">
+        <section class="py-20 bg-[#070707]">
             <div class="container mx-auto px-6 lg:px-12">
-                <div class="text-center mb-16">
-                    <p class="font-mono text-neutral-500 mb-3 tracking-widest text-xs font-bold uppercase">04 // Tactical Architecture</p>
-                    <h2 class="text-5xl md:text-6xl text-white font-bold tracking-tight">The 3 Ranges</h2>
+                
+                <div class="flex items-center gap-4 mb-16 justify-center">
+                    <div class="w-12 h-px bg-neutral-600"></div>
+                    <h2 class="font-oswald text-4xl text-white uppercase tracking-[0.2em] text-center">Tactical Architecture</h2>
+                    <div class="w-12 h-px bg-neutral-600"></div>
                 </div>
                 
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                     
-                    <!-- Short Range Card -->
-                    <div class="glass-panel p-10 flex flex-col relative overflow-hidden group">
-                        <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-red-600 to-red-800"></div>
-                        <div class="mb-8 flex justify-between items-center">
-                            <h3 class="text-4xl text-white font-black tracking-tight">SHORT</h3>
-                            <span class="font-mono text-xs text-red-400 bg-red-950/50 border border-red-900/50 rounded-full px-3 py-1 uppercase tracking-widest">Phase 1</span>
-                        </div>
-                        <p class="font-mono text-neutral-500 text-sm mb-6 uppercase tracking-widest">Face To Face</p>
+                    <!-- SHORT RANGE -->
+                    <div class="sharp-box p-8 relative flex flex-col">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-[#b91c1c]"></div>
                         
-                        <div class="flex-grow">
-                            <p class="text-neutral-300 text-xl md:text-2xl leading-relaxed font-light">
-                                Focus entirely on <strong class="text-white font-semibold">grapple and tackle techniques</strong>. Building absolute, unflinching <strong class="text-white font-semibold">collision confidence</strong>.
-                            </p>
+                        <div class="flex items-end gap-3 mb-6">
+                            <h3 class="font-oswald text-5xl text-white uppercase font-bold leading-none">Short</h3>
+                            <div class="border border-[#b91c1c]/30 text-[#b91c1c] text-xs font-mono-tech px-2 py-1 uppercase bg-[#b91c1c]/10">
+                                Phase 1
+                            </div>
+                        </div>
+                        
+                        <p class="font-mono-tech text-neutral-500 text-sm uppercase mb-10 tracking-widest">Face To Face</p>
+                        
+                        <p class="text-neutral-300 font-inter text-xl leading-relaxed font-light mb-8 flex-grow">
+                            Focus entirely on <strong class="text-white font-bold">grapple and tackle techniques.</strong> Building absolute, unflinching <strong class="text-white font-bold">collision confidence.</strong>
+                        </p>
+                    </div>
+
+                    <!-- MEDIUM RANGE -->
+                    <div class="sharp-box p-8 relative flex flex-col">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-[#2563eb]"></div>
+                        
+                        <div class="flex items-end gap-3 mb-6">
+                            <h3 class="font-oswald text-5xl text-white uppercase font-bold leading-none">Medium</h3>
+                            <div class="border border-[#2563eb]/30 text-[#2563eb] text-xs font-mono-tech px-2 py-1 uppercase bg-[#2563eb]/10">
+                                Phase 2
+                            </div>
+                        </div>
+                        
+                        <p class="font-mono-tech text-neutral-500 text-sm uppercase mb-10 tracking-widest">5 - 10 Meters</p>
+                        
+                        <p class="text-neutral-300 font-inter text-xl leading-relaxed font-light mb-10">
+                            Applying techniques to master the system architecture.
+                        </p>
+                        
+                        <!-- Tactical Buttons Grid -->
+                        <div class="mt-auto flex flex-col gap-3 font-mono-tech text-sm">
+                            <div class="border border-neutral-700 p-2 text-center text-neutral-400 uppercase">Nause (Slow 9)</div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="border border-neutral-700 p-2 text-center text-neutral-400 uppercase">Doubles</div>
+                                <div class="border border-neutral-700 p-2 text-center text-neutral-400 uppercase">Wolf</div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="border border-neutral-700 p-2 text-center text-neutral-400 uppercase">Scout</div>
+                                <div class="border border-neutral-700 p-2 text-center text-neutral-400 uppercase">Back 3</div>
+                            </div>
+                            <div class="border border-[#2563eb]/50 p-2 text-center text-[#3b82f6] uppercase mt-2 bg-[#2563eb]/10">Flag (Pre-Game)</div>
                         </div>
                     </div>
 
-                    <!-- Medium Range Card -->
-                    <div class="glass-panel p-10 flex flex-col relative overflow-hidden group">
-                        <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-blue-500 to-blue-700"></div>
-                        <div class="mb-8 flex justify-between items-center">
-                            <h3 class="text-4xl text-white font-black tracking-tight">MEDIUM</h3>
-                            <span class="font-mono text-xs text-blue-400 bg-blue-950/50 border border-blue-900/50 rounded-full px-3 py-1 uppercase tracking-widest">Phase 2</span>
-                        </div>
-                        <p class="font-mono text-neutral-500 text-sm mb-6 uppercase tracking-widest">5 - 10 Meters</p>
+                    <!-- LONG RANGE -->
+                    <div class="sharp-box p-8 relative flex flex-col">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-white"></div>
                         
-                        <div class="mb-10">
-                            <p class="text-neutral-300 text-xl leading-relaxed font-light">
-                                Applying techniques to master the system architecture.
-                            </p>
+                        <div class="flex items-end gap-3 mb-6">
+                            <h3 class="font-oswald text-5xl text-white uppercase font-bold leading-none">Long</h3>
+                            <div class="bg-white text-black text-xs font-mono-tech px-2 py-1 uppercase font-bold">
+                                Phase 3
+                            </div>
                         </div>
                         
-                        <div class="mt-auto grid grid-cols-2 gap-3 font-mono text-xs tracking-wider">
-                            <div class="col-span-2 bg-white/5 border border-white/10 rounded-lg p-3 text-center text-neutral-300 uppercase hover:bg-white/10 transition-colors">Nause (Slow 9)</div>
-                            <div class="bg-white/5 border border-white/10 rounded-lg p-3 text-center text-neutral-300 uppercase hover:bg-white/10 transition-colors">Doubles</div>
-                            <div class="bg-white/5 border border-white/10 rounded-lg p-3 text-center text-neutral-300 uppercase hover:bg-white/10 transition-colors">Wolf</div>
-                            <div class="bg-white/5 border border-white/10 rounded-lg p-3 text-center text-neutral-300 uppercase hover:bg-white/10 transition-colors">Scout</div>
-                            <div class="bg-white/5 border border-white/10 rounded-lg p-3 text-center text-neutral-300 uppercase hover:bg-white/10 transition-colors">Back 3</div>
-                            <div class="col-span-2 bg-blue-900/20 border border-blue-500/30 rounded-lg p-3 text-center text-blue-400 uppercase font-semibold">Flag (Pre-game)</div>
-                        </div>
-                    </div>
-
-                    <!-- Long Range Card -->
-                    <div class="glass-panel p-10 flex flex-col relative overflow-hidden group">
-                        <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-neutral-200 to-neutral-500"></div>
-                        <div class="mb-8 flex justify-between items-center">
-                            <h3 class="text-4xl text-white font-black tracking-tight">LONG</h3>
-                            <span class="font-mono text-xs text-black bg-white rounded-full px-3 py-1 uppercase tracking-widest font-bold">Phase 3</span>
-                        </div>
-                        <p class="font-mono text-neutral-500 text-sm mb-6 uppercase tracking-widest">Zone Defence</p>
+                        <p class="font-mono-tech text-neutral-500 text-sm uppercase mb-10 tracking-widest">Zone Defence</p>
                         
-                        <div class="mb-10">
-                            <p class="text-neutral-300 text-xl leading-relaxed font-light">
-                                Strategic defence specific to pitch geography.
-                            </p>
-                        </div>
+                        <p class="text-neutral-300 font-inter text-xl leading-relaxed font-light mb-10 flex-grow">
+                            Strategic defence specific to pitch geography.
+                        </p>
                         
-                        <div class="mt-auto space-y-3 font-mono text-sm tracking-widest">
-                            <div class="bg-red-950/30 border border-red-500/30 rounded-xl p-4 text-center text-red-400 uppercase">Red Zone</div>
-                            <div class="bg-orange-950/30 border border-orange-500/30 rounded-xl p-4 text-center text-orange-400 uppercase">Transition</div>
-                            <div class="bg-green-950/30 border border-green-500/30 rounded-xl p-4 text-center text-green-400 uppercase">Green (22 to Line)</div>
+                        <!-- Zone Buttons Grid -->
+                        <div class="mt-auto flex flex-col gap-3 font-mono-tech text-sm tracking-wider">
+                            <div class="border border-red-900/80 p-3 text-center text-red-500 uppercase bg-red-950/20">Red Zone</div>
+                            <div class="border border-orange-900/80 p-3 text-center text-orange-500 uppercase bg-orange-950/20">Transition</div>
+                            <div class="border border-green-900/80 p-3 text-center text-green-500 uppercase bg-green-950/20">Green (22 To Line)</div>
                         </div>
                     </div>
 
@@ -256,10 +250,10 @@
 
     </main>
 
-    <footer class="py-12 text-center border-t border-white/5 mt-10">
+    <footer class="py-12 text-center border-t border-white/10 bg-[#070707]">
         <div class="container mx-auto px-6">
-            <p class="font-mono text-neutral-600 text-xs tracking-widest uppercase">
-                Hove RFC &copy; 2026 // Hannibal Defence Protocol // Highly Confidential
+            <p class="font-mono-tech text-neutral-600 text-xs tracking-widest uppercase">
+                Hove RFC &copy; 2026 // Hannibal Defence Protocol // Strictly Confidential
             </p>
         </div>
     </footer>
